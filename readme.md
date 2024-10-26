@@ -4,12 +4,6 @@ This repository provides a step-by-step guide to run inference with the YOLOX mo
 
 ## Prerequisites
 
-Before you begin, make sure you have the following components installed:
-
-- **[OpenVINO Toolkit](https://docs.openvino.ai/latest/openvino_docs_install_guides_installing_openvino_windows.html)**
-- **Python 3.8 or later** (tested with Python 3.10)
-- **Open Model Zoo Tools**: `omz_downloader` and `omz_converter`
-
 To install the required Python dependencies:
 
 ```bash
