@@ -216,10 +216,11 @@ def visualize_results(image, boxes, scores, cls_inds, conf, classes):
 class YoloXOpenVinoInference:
     """YOLOX inference using OpenVINO."""
 
-    def __init__(self, model_path, classes_file, device="CPU", confidence=0.5):
+    def __init__(self, model_path, classes_file, device="CPU", nms = 0.4 ,confidence=0.5):
         """Initialize YOLOX model using OpenVINO."""
         self.classes = load_classes(classes_file)
         self.confidence = confidence
+        self.nms = nms
         self.model_path = model_path
         self.device = device
         self.input_shape = None
@@ -237,7 +238,7 @@ class YoloXOpenVinoInference:
 
         # Post-process results
         boxes, scores, class_indices = postprocess_results(
-            results, self.input_shape, ratio, self.confidence
+            results, self.input_shape, ratio, self.nms, self.confidence
         )
 
         if boxes is None:
